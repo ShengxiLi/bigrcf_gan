@@ -21,4 +21,4 @@ CUDA_VISIBLE_DEVICES=6 python sample.py \
 --sample_inception_metrics --sample_random --sample_sheets --sample_interps \
 --unconditional \
 --name_suffix reg6 \
---data_root '/mnt/disk1/lsx/gan_dataset/' \
+--data_root './data' \

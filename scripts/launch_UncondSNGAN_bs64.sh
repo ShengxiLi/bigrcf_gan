@@ -13,8 +13,7 @@ CUDA_VISIBLE_DEVICES=7 python train.py \
 --G_eval_mode \
 --test_every 2000 --save_every 1000 --num_best_copies 5 --num_save_copies 2 --seed 0 \
 --name_suffix SNGAN \
---data_root '/mnt/disk1/lsx/gan_dataset/' \
+--data_root './data' \
 --unconditional \
 --which_best FID \
 --num_epochs 1000 \
---resume \

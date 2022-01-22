@@ -1,7 +1,7 @@
 # use z_var to change the variance of z for all the sampling
 # use --mybn --accumulate_stats --num_standing_accumulations 32 to 
 # use running stats
-CUDA_VISIBLE_DEVICES=7 python sample.py \
+CUDA_VISIBLE_DEVICES=0 python sample.py \
 --dataset L64 --parallel --shuffle  --num_workers 0 --batch_size 64  \
 --num_G_accumulations 1 --num_D_accumulations 1 \
 --num_D_steps 1 --G_lr 1e-4 --D_lr 4e-4 --D_B2 0.999 --G_B2 0.999 \
@@ -19,4 +19,4 @@ CUDA_VISIBLE_DEVICES=7 python sample.py \
 --skip_init --use_ema --G_eval_mode --load_weights best0 \
 --sample_inception_metrics --sample_random --sample_sheets --sample_interps \
 --unconditional \
---data_root '/mnt/disk1/lsx/gan_dataset/' \
+--data_root './data' \

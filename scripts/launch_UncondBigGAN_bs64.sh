@@ -15,7 +15,7 @@ CUDA_VISIBLE_DEVICES=0 python train.py \
 --ema --use_ema --ema_start 20000 \
 --test_every 2000 --save_every 1000 --num_best_copies 5 --num_save_copies 2 --seed 0 \
 --use_multiepoch_sampler \
---data_root '/mnt/disk1/lsx/gan_dataset/' \
+--data_root './data' \
 --unconditional \
 --which_best FID \
 --num_epochs 1000 \

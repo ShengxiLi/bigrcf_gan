@@ -20,4 +20,4 @@ CUDA_VISIBLE_DEVICES=4 python sample.py \
 --skip_init --use_ema --G_eval_mode --load_weights best0 \
 --sample_inception_metrics --sample_npz  --sample_random --sample_sheets --sample_interps \
 --unconditional \
---data_root '/mnt/disk1/lsx/gan_dataset/' \
+--data_root './data' \

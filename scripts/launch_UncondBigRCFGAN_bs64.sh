@@ -1,5 +1,5 @@
 #!/bin/bash
-CUDA_VISIBLE_DEVICES=4 python train.py \
+CUDA_VISIBLE_DEVICES=0 python train.py \
 --model RcfGAN --which_train_fn RCFGAN --t_sigma_num 64 \
 --z_var 0.5 \
 --dataset C10 --parallel --shuffle  --num_workers 8 --batch_size 64 \
@@ -19,6 +19,6 @@ CUDA_VISIBLE_DEVICES=4 python train.py \
 --unconditional \
 --which_best FID \
 --test_every 2000 --save_every 2000 --num_best_copies 5 --num_save_copies 2 --seed 0 \
---data_root '/mnt/disk1/lsx/gan_dataset/' \
+--data_root './data' \
 --name_suffix reg6 \
 --num_epochs 1200 \

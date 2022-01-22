@@ -14,10 +14,10 @@ CUDA_VISIBLE_DEVICES=7 python sample.py \
 --G_init xavier --D_init xavier \
 --G_eval_mode \
 --name_suffix SNGAN \
---data_root '/mnt/disk1/lsx/gan_dataset/' \
 --unconditional \
 --which_best FID \
 --num_epochs 1000 \
 --test_every 2000 --save_every 1000 --num_best_copies 5 --num_save_copies 2 --seed 0 \
 --skip_init --load_weights best0 \
 --sample_inception_metrics  --sample_random --sample_sheets --sample_interps \
+--data_root './data' \

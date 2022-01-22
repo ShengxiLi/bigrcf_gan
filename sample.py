@@ -123,8 +123,7 @@ def run(config):
         paths = []
         paths += [npz_filename]
         paths += [config['data_root'] + '/' + root_dict[config['dataset']]]
-        # paths += ['I128_inception_moments.npz']
-
+        # TODO: You may need to change original TTUR-->calculate_fid_given_paths to accept npz data
         tf_fid = calculate_fid_given_paths(paths, None)
         print('Tensorflow FID is: ', tf_fid)
 
@@ -144,8 +143,10 @@ def run(config):
             paths = []
             paths += [npz_filename]
             paths += [config['data_root'] + '/' + root_dict[config['dataset']]]
+            # TODO: You may need to change original TTUR-->calculate_fid_given_paths to accept npz data
             tf_fid = calculate_fid_given_paths(paths, None)
             print('Tnsorflow FID for reconstruction is: ', tf_fid)
+
     # Prepare sample sheets
     if config['sample_sheets']:
         print('Preparing conditional sample sheets...')
@@ -203,18 +204,18 @@ def run(config):
         print('Calculating Inception metrics...')
         get_metrics()
 
-    # # Sample truncation curve stuff. This is basically the same as the inception metrics code
-    # if config['sample_trunc_curves']:
-    #     start, step, end = [float(item) for item in config['sample_trunc_curves'].split('_')]
-    #     print('Getting truncation values for variance in range (%3.3f:%3.3f:%3.3f)...' % (start, step, end))
-    #     for var in np.arange(start, end + step, step):
-    #         z_.var = var
-    #         # Optionally comment this out if you want to run with standing stats
-    #         # accumulated at one z variance setting
-    #         if config['accumulate_stats']:
-    #             utils.accumulate_standing_stats(G, z_, y_, config['n_classes'],
-    #                                             config['num_standing_accumulations'])
-    #         get_metrics()
+    # Sample truncation curve stuff. This is basically the same as the inception metrics code
+    if config['sample_trunc_curves']:
+        start, step, end = [float(item) for item in config['sample_trunc_curves'].split('_')]
+        print('Getting truncation values for variance in range (%3.3f:%3.3f:%3.3f)...' % (start, step, end))
+        for var in np.arange(start, end + step, step):
+            z_.var = var
+            # Optionally comment this out if you want to run with standing stats
+            # accumulated at one z variance setting
+            if config['accumulate_stats']:
+                utils.accumulate_standing_stats(G, z_, y_, config['n_classes'],
+                                                config['num_standing_accumulations'])
+            get_metrics()
 
 
 def main():
