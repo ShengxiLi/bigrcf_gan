@@ -1,6 +1,8 @@
 # BigRCF-GAN
 This repo wraps BigGAN to implement the proposed RCF-GAN. The detailed introduction of the RCF-GAN can be found at here https://github.com/ShengxiLi/rcf_gan.
 
+![BigRCF-GAN](imgs/bigrcfgan_results.png)
+
 ## How To Install
 Follow the steps in the original BigGAN-Pytorch repo: https://github.com/ajbrock/BigGAN-PyTorch
 
